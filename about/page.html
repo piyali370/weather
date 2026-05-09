@@ -2,15 +2,27 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>About - Weather App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - GeoWeather</title>
+
   <style>
-    /* Reset */
+    /* =========================
+       Global Styles
+    ========================== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, sans-serif;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --secondary: #0f172a;
+      --light: #f8fafc;
+      --text: #334155;
+      --card: rgba(255, 255, 255, 0.9);
     }
 
     body {
@@ -19,7 +31,9 @@
       line-height: 1.6;
     }
 
-    /* Navbar */
+    /* =========================
+       Navbar
+    ========================== */
     header {
       background: #0d6efd;
       color: white;
@@ -38,13 +52,33 @@
       text-decoration: underline;
     }
 
-    /* Container */
-    .container {
-      width: 80%;
-      margin: 30px auto;
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
     }
 
-    /* Sections */
+    /* =========================
+       Main Container
+    ========================== */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding-bottom: 50px;
+    }
+
+    /* =========================
+       Cards / Sections
+    ========================== */
     .section {
       background: white;
       padding: 20px;
@@ -62,12 +96,11 @@
       transform: translateY(0);
     }
 
-    h2 {
+    .section h2 {
       margin-bottom: 10px;
       color: #0077b6;
     }
 
-    /* Feature List */
     ul {
       margin-top: 10px;
       padding-left: 20px;
@@ -77,7 +110,9 @@
       margin-bottom: 8px;
     }
 
-    /* Footer */
+    /* =========================
+       Footer
+    ========================== */
     footer {
       text-align: center;
       padding: 15px;
@@ -85,36 +120,74 @@
       color: white;
       margin-top: 30px;
     }
+
+    /* =========================
+       Mobile Responsive
+    ========================== */
+    @media (max-width: 768px) {
+
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+
+      .section {
+        padding: 22px;
+      }
+
+      .section h2 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      nav {
+        gap: 12px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- Header -->
+  <!-- =========================
+       Header
+  ========================== -->
   <header>
     <h1>GeoWeather</h1>
-    <nav>
-    </nav>
   </header>
 
-  <!-- Content -->
+
+  <!-- =========================
+       Main Content
+  ========================== -->
   <div class="container">
 
-    <!-- About Section -->
-    <div class="section">
-      <h2>About This App</h2>
+    <!-- About -->
+    <section class="section">
+      <h2>About GeoWeather</h2>
+
       <p>
         The GeoWeather App is designed to provide accurate, real-time information about cities across the globe,
         including their region, country, time zone, latitude, longitude, and local time.
         For every selected city, the app presents key information such as its region, country, and time zone, along with
         precise latitude and longitude coordinates. In addition, it shows the local time of the location, helping users
-        stay aware of time differences worldwide. 
+        stay aware of time differences worldwide.
+      </p>
+      <br>
+      <p>
         It is designed to be simple, fast, and user-friendly.
       </p>
-    </div>
+    </section>
 
     <!-- Features -->
-    <div class="section">
+    <section class="section">
       <h2>Features</h2>
       <ul>
         <li>🌐 Latitude & Longitude Tracking</li>
@@ -123,45 +196,54 @@
         <li>🌍 Timezone Insights</li>
         <li>⚡ Fast and responsive design</li>
       </ul>
-    </div>
+    </section>
 
-    <!-- Developer Section -->
-    <div class="section">
+    <!-- Developer -->
+    <section class="section">
       <h2>Developer</h2>
       <p>
         This project is developed as part of a learning journey in web development.
         It uses HTML, CSS, and JavaScript along with weather APIs.
       </p>
-    </div>
+    </section>
 
   </div>
 
-  <!-- Footer -->
+  <!-- =========================
+       Footer
+  ========================== -->
   <footer>
-    <p>© 2026 GeoWeather App | All Rights Reserved</p>
+    <p>© 2026 GeoWeather App | Designed For Every Device</p>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- =========================
+       JavaScript
+  ========================== -->
   <script>
-    // Fade-in animation on scroll
-    const sections = document.querySelectorAll('.section');
+
+    // Scroll Reveal Animation
+    const sections = document.querySelectorAll(".section");
 
     function revealSections() {
+
       const triggerBottom = window.innerHeight * 0.85;
 
       sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
+
+        const sectionTop =
+          section.getBoundingClientRect().top;
 
         if (sectionTop < triggerBottom) {
-          section.classList.add('visible');
+          section.classList.add("visible");
         }
+
       });
     }
 
-    window.addEventListener('scroll', revealSections);
+    window.addEventListener("scroll", revealSections);
 
-    // Run on load
     revealSections();
+
   </script>
 
 </body>
